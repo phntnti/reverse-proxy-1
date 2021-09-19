@@ -1,0 +1,16 @@
+name: DocFX Build
+on:
+  push:
+    branches:
+      - release/latest
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      # Check out the branch that triggered this workflow to the 'source' subdirectory
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          path: source
+          ref: release/latest
